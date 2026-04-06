@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
+import Homepage from './pages/Homepage';
 import RegisterStore from './pages/RegisterStore';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -20,26 +21,14 @@ function App() {
   }, []);
 
   return (
-    <div className="app-shell">
-      <header className="site-header">
-        <h1>BallkanBizz Marketplace</h1>
-        <nav>
-          <NavLink to="/register">Register</NavLink>
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/dashboard">Dashboard</NavLink>
-          {userRole === 'admin' && <NavLink to="/admin">Admin</NavLink>}
-        </nav>
-      </header>
-
-      <main>
-        <Routes>
-          <Route path="/" element={<Navigate to="/register" replace />} />
-          <Route path="/register" element={<RegisterStore />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={token ? <Dashboard /> : <Navigate to="/login" replace />} />
-          <Route path="/admin" element={token && userRole === 'admin' ? <AdminDashboard /> : <Navigate to="/login" replace />} />
-        </Routes>
-      </main>
+    <div className="app">
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/register" element={<RegisterStore />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={token ? <Dashboard /> : <Navigate to="/login" replace />} />
+        <Route path="/admin" element={token && userRole === 'admin' ? <AdminDashboard /> : <Navigate to="/login" replace />} />
+      </Routes>
     </div>
   );
 }
