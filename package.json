@@ -1,0 +1,14 @@
+{
+  "name": "ballkanbizz",
+  "version": "1.0.0",
+  "description": "BallkanBizz application",
+  "main": "backend/index.js",
+  "scripts": {
+    "install-all": "cd backend && npm install && cd ../frontend && npm install",
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
